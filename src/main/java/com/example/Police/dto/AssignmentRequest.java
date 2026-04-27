@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class AssignmentRequest {
     private Long patrolId;
-    private Long officerId;
+    private String officerEmail;
 }

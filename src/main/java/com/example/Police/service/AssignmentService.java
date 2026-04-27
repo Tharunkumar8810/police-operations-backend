@@ -27,8 +27,8 @@ public class AssignmentService {
         Patrol patrol = patrolRepository.findById(request.getPatrolId())
                 .orElseThrow(() -> new RuntimeException("Patrol not found with id: " + request.getPatrolId()));
 
-        User officer = userRepository.findById(request.getOfficerId())
-                .orElseThrow(() -> new RuntimeException("Officer not found with id: " + request.getOfficerId()));
+        User officer = userRepository.findByEmail(request.getOfficerEmail())
+                .orElseThrow(() -> new RuntimeException("Officer not found with email: " + request.getOfficerEmail()));
 
         User sho = userRepository.findByEmail(shoEmail)
                 .orElseThrow(() -> new RuntimeException("SHO not found"));
