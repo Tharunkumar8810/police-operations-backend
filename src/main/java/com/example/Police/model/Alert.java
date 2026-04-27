@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import com.example.Police.common.AuditEntity;
 
 @Entity
-@Table(name = "alerts")
+@Table(name = "police_alerts")
 @Data
 @Builder
 @NoArgsConstructor

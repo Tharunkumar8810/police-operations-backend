@@ -9,7 +9,7 @@ import java.util.List;
 import com.example.Police.common.AuditEntity;
 
 @Entity
-@Table(name = "patrols")
+@Table(name = "police_patrols")
 @Data
 @Builder
 @NoArgsConstructor
