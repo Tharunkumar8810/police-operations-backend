@@ -1,46 +1,47 @@
 # CopMap Backend Project
 
-**Live API Base URL:** [Add your hosted link here, e.g., https://your-app.onrender.com/api]
+**Live API Base URL:** [Add your hosted link here]
 
 This is the backend for the CopMap assignment. It handles the core police workflows like patrolling and nakabandi using Spring Boot and Postgres.
 
-## 1. Research & Understanding
+## 1. Problem Understanding
 
-**Patrolling:** 
-This is basically when officers are sent out to a specific area to keep an eye on things, maintain law and order, and react to crimes quickly. It's usually a dynamic route and they need to constantly report where they are.
+**What is Patrolling?**
+Patrolling is when officers move around a specific area to keep it safe and report their location.
 
-**Bandobast & Nakabandi:**
-- Bandobast is more static. It's planned for big events, protests, or VIP movements where lots of officers just guard a specific zone.
-- Nakabandi means setting up checkpoints on roads to check cars, usually to catch suspects or for routine security checks.
+**What is Bandobast / Nakabandi?**
+Bandobast is when officers stand guard at a specific event. Nakabandi is when they set up a checkpoint on a road to check vehicles.
 
-**How it works here:**
-The SHO (Station House Officer) is the one doing the planning. They create the patrol in the system and assign officers. The officers execute it by going to the location, acknowledging the assignment, and updating their GPS. Supervisors can just watch the live feeds and see if anything goes wrong.
+**How the flow works:**
+1. **SHO** (Station House Officer) creates a patrol in the system and assigns an officer to it.
+2. **Officer** sees the assignment, accepts it, and goes to the location.
+3. **Officer** updates their live location while patrolling.
+4. **Supervisor / SHO** can monitor everything.
+5. **Officer** completes the patrol.
 
-## 2. Actors and Roles
+## 2. Actor & Role Design
 
 I used standard JWT auth with role-based access.
 
-- **SHO:** Plans operations. Can create patrols, assign officers, and resolve alerts.
-- **OFFICER:** The person actually on the ground. They can accept their assignments, send live locations, and trigger SOS alerts if there's an emergency.
-- **SUPERVISOR:** Higher rank, mostly for monitoring the situation.
+- **SHO:** The boss. They create patrols, assign officers, and check alerts.
+- **OFFICER:** The person on the ground. They accept assignments, send their GPS location, and can raise an SOS alert if there is trouble.
+- **SUPERVISOR:** Higher rank, just for monitoring the system.
 
 ## 3. System Design
 
 The project uses standard Spring Boot layer architecture (Controllers -> Services -> Repositories). 
 
-**What I built:**
-- JWT login and registration flows
-- Patrol CRUD operations
-- Assignment mapping (linking officers to patrols)
-- Live location tracking. I used WebSockets (`SimpMessagingTemplate`) for this so the frontend can get live updates on `/topic/patrol-{id}` without polling the server constantly.
-- Alerting system for SOS or manual alerts.
+**What I implemented:**
+- JWT login and security.
+- CRUD APIs for Patrols, Assignments, and Alerts.
+- Live location tracking using WebSockets (so the frontend gets live updates without refreshing).
 
 **Trade-offs & what I skipped:**
 - I didn't use microservices. A monolith makes much more sense for this scale and is easier to test.
 - I skipped Redis cache because the Postgres DB is fast enough for this MVP, and I wanted to keep the setup simple.
 - Skipped Dockerizing to keep the run instructions simple (just maven and java). 
 
-## 4. Data Models
+## 4. Data Models (Database)
 
 I used PostgreSQL. Here are the main tables:
 - `users`: stores email, password, and roles.
@@ -55,10 +56,10 @@ You just need Java 21 and PostgreSQL running on your machine.
 
 1. Open pgAdmin or psql and create the database:
    `CREATE DATABASE policedb;`
-2. Make sure your postgres username/password is `postgres`/`postgres`. If not, just change it in the `application.properties` file.
+2. Update `application.properties` if your postgres username/password is not `postgres`/`postgres`.
 3. Build the project:
    `mvn clean package -DskipTests`
-4. Run the jar:
+4. Run the jar file:
    `java -jar target/SecurityWithJwtTemplate-0.0.1-SNAPSHOT.jar`
 
 The server will run on `http://localhost:8080`.
