@@ -4,13 +4,15 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
+import com.example.Police.common.AuditEntity;
+
 @Entity
 @Table(name = "locations")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Location {
+public class Location extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +36,7 @@ public class Location {
     private LocalDateTime timestamp;
 
     @PrePersist
-    protected void onCreate() {
+    protected void onLocationCreate() {
         this.timestamp = LocalDateTime.now();
     }
 }

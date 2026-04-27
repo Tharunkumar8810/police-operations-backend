@@ -4,13 +4,15 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
+import com.example.Police.common.AuditEntity;
+
 @Entity
 @Table(name = "alerts")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Alert {
+public class Alert extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +37,6 @@ public class Alert {
     @Column(nullable = false)
     private AlertStatus status;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
     @Column
     private LocalDateTime resolvedAt;
 
@@ -46,8 +45,7 @@ public class Alert {
     private User resolvedBy;        // supervisor who resolved the alert
 
     @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+    protected void onAlertCreate() {
         this.status = AlertStatus.OPEN;
     }
 }

@@ -4,13 +4,15 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
+import com.example.Police.common.AuditEntity;
+
 @Entity
 @Table(name = "assignments")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Assignment {
+public class Assignment extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +47,7 @@ public class Assignment {
     private User assignedBy;             // SHO who assigned
 
     @PrePersist
-    protected void onCreate() {
+    protected void onAssignmentCreate() {
         this.assignedAt = LocalDateTime.now();
         this.status = AssignmentStatus.PENDING;
     }

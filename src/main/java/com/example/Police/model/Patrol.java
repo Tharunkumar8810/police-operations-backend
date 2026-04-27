@@ -6,13 +6,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.example.Police.common.AuditEntity;
+
 @Entity
 @Table(name = "patrols")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Patrol {
+public class Patrol extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,15 +47,11 @@ public class Patrol {
     @Column
     private String notes;          // optional instructions
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
     @Column
     private LocalDateTime closedAt;
 
     @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+    protected void onPatrolCreate() {
         this.status = PatrolStatus.PLANNED;
     }
 }

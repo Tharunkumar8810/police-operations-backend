@@ -31,7 +31,6 @@ public class PatrolService {
                 .notes(request.getNotes())
                 .status(PatrolStatus.PLANNED)
                 .createdBy(sho)
-                .createdAt(LocalDateTime.now())
                 .build();
 
         return patrolRepository.save(patrol);

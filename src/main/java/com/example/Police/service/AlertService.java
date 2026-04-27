@@ -36,7 +36,6 @@ public class AlertService {
                 .type(request.getType())
                 .message(request.getMessage())
                 .status(AlertStatus.OPEN)
-                .createdAt(LocalDateTime.now())
                 .build();
 
         return alertRepository.save(alert);
