@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.example.Police.common.AuditEntity;
 
 @Entity
-@Table(name = "users")
+@Table(name = "police_users")
 @Data
 @Builder
 @NoArgsConstructor
