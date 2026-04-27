@@ -36,6 +36,9 @@ The project uses standard Spring Boot layer architecture (Controllers -> Service
 - CRUD APIs for Patrols, Assignments, and Alerts.
 - Live location tracking using WebSockets (so the frontend gets live updates without refreshing).
 
+**Architecture Diagram**
+![Architecture Diagram](architecture_diagram.jpg.png)
+
 **Trade-offs & what I skipped:**
 - I didn't use microservices. A monolith makes much more sense for this scale and is easier to test.
 - I skipped Redis cache because the Postgres DB is fast enough for this MVP, and I wanted to keep the setup simple.
@@ -48,6 +51,12 @@ I used PostgreSQL. Here are the main tables:
 - `assignments`: maps the patrol to the officer. Tracks when they acknowledge it and complete it.
 - `locations`: logs the lat/long of officers during a patrol.
 - `alerts`: tracks emergency SOS or missed check-ins.
+
+**Database ER Diagram**
+![Database Diagram](database_diagram.jpg.png)
+
+**System Flow Diagram**
+![Flow Diagram](flow_diagram.jpg.png)
 
 ## 5. How to Test & Run It
 

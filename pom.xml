@@ -14,10 +14,10 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>SecurityWithJwtTemplate</artifactId>
+	<artifactId>police-operations-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SecurityWithJwtTemplate</name>
-	<description>Spring Security + JWT Template Project</description>
+	<name>police-operations-backend</name>
+	<description>Spring Boot Police Operations Backend</description>
 
 	<properties>
 		<java.version>21</java.version>
