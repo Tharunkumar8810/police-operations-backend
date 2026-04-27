@@ -1,6 +1,6 @@
 # CopMap Backend Project
 
-**Live API Base URL:** [Add your hosted link here]
+**Live API Base URL:** https://police-operations-backend.onrender.com
 
 This is the backend for the CopMap assignment. It handles the core police workflows like patrolling and nakabandi using Spring Boot and Postgres.
 

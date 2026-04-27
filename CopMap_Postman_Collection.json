@@ -178,7 +178,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost:8080",
+			"value": "https://police-operations-backend.onrender.com",
 			"type": "string"
 		},
 		{
