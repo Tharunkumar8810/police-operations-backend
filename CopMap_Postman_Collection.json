@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"sho@copmap.in\",\n    \"password\": \"password123\",\n    \"badgeNumber\": \"SHO-001\",\n    \"role\": \"SHO\"\n}"
+							"raw": "{\n    \"name\": \"Ravi Kumar\",\n    \"email\": \"sho@copmap.in\",\n    \"password\": \"password123\",\n    \"badgeNumber\": \"SHO-001\",\n    \"role\": \"SHO\"\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/api/auth/register",
