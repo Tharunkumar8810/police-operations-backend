@@ -39,7 +39,6 @@ The project uses standard Spring Boot layer architecture (Controllers -> Service
 **Trade-offs & what I skipped:**
 - I didn't use microservices. A monolith makes much more sense for this scale and is easier to test.
 - I skipped Redis cache because the Postgres DB is fast enough for this MVP, and I wanted to keep the setup simple.
-- Skipped Dockerizing to keep the run instructions simple (just maven and java). 
 
 ## 4. Data Models (Database)
 
@@ -50,19 +49,24 @@ I used PostgreSQL. Here are the main tables:
 - `locations`: logs the lat/long of officers during a patrol.
 - `alerts`: tracks emergency SOS or missed check-ins.
 
-## 5. How to run it
+## 5. How to Test & Run It
 
-You just need Java 21 and PostgreSQL running on your machine.
+### Option 1: Use the Live Hosted API (Zero-Config)
+The easiest way to test this project is to use the **Live API Base URL** provided at the top of this document. The application is fully hosted on **Render** and connected to a live **Neon PostgreSQL database**. You don't need to run or install anything!
 
-1. Open pgAdmin or psql and create the database:
-   `CREATE DATABASE policedb;`
-2. Update `application.properties` if your postgres username/password is not `postgres`/`postgres`.
-3. Build the project:
+### Option 2: Run it Locally
+If you prefer to run the code on your own machine, you can do so using Docker or Maven. 
+*(Note: You must have a local PostgreSQL database running and you will need to update `application.properties` with your own database credentials before starting).*
+
+**Using Docker (Recommended)**
+1. Build the image: `docker build -t copmap-backend .`
+2. Run the container: `docker run -p 8080:8080 copmap-backend`
+
+**Manual Run (Maven/Java)**
+1. Build the project:
    `mvn clean package -DskipTests`
-4. Run the jar file:
-   `java -jar target/SecurityWithJwtTemplate-0.0.1-SNAPSHOT.jar`
-
-The server will run on `http://localhost:8080`.
+2. Run the jar file:
+   `java -jar target/police-operations-backend-0.0.1-SNAPSHOT.jar`
 
 ## 6. Video Walkthrough
 [Add your video link here]
