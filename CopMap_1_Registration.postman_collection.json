@@ -1,0 +1,44 @@
+{
+  "info": {
+    "name": "1. CopMap - Registration",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register SHO",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alex Carter\",\n  \"email\": \"sho@police.com\",\n  \"password\": \"password123\",\n  \"badgeNumber\": \"SHO-100\",\n  \"role\": \"SHO\"\n}"
+        },
+        "url": {"raw": "https://police-operations-backend.onrender.com/api/auth/register", "host": ["https://police-operations-backend.onrender.com"]}
+      }
+    },
+    {
+      "name": "Register Officer",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sarah Miller\",\n  \"email\": \"officer@police.com\",\n  \"password\": \"password123\",\n  \"badgeNumber\": \"OFF-205\",\n  \"role\": \"OFFICER\"\n}"
+        },
+        "url": {"raw": "https://police-operations-backend.onrender.com/api/auth/register", "host": ["https://police-operations-backend.onrender.com"]}
+      }
+    },
+    {
+      "name": "Register Supervisor",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"David Wallace\",\n  \"email\": \"supervisor@police.com\",\n  \"password\": \"password123\",\n  \"badgeNumber\": \"SUP-001\",\n  \"role\": \"SUPERVISOR\"\n}"
+        },
+        "url": {"raw": "https://police-operations-backend.onrender.com/api/auth/register", "host": ["https://police-operations-backend.onrender.com"]}
+      }
+    }
+  ]
+}
