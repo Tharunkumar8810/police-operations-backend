@@ -9,6 +9,7 @@ import com.example.Police.common.AuditEntity;
 @Entity
 @Table(name = "police_assignments")
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
