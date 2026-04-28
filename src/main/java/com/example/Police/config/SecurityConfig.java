@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/public/health").permitAll()
                         .requestMatchers("/ws-tracking/**").permitAll()
                         .requestMatchers("/api/patrols/**").hasRole("SHO")
                         .requestMatchers("/api/assignments/**").hasAnyRole("SHO", "OFFICER")
