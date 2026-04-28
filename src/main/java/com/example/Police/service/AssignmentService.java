@@ -37,13 +37,12 @@ public class AssignmentService {
             throw new RuntimeException("Officer " + officer.getName() + " is already assigned to this patrol.");
         }
 
-        Assignment assignment = Assignment.builder()
-                .patrol(patrol)
-                .officer(officer)
-                .assignedBy(sho)
-                .status(AssignmentStatus.PENDING)
-                .assignedAt(LocalDateTime.now())
-                .build();
+        Assignment assignment = new Assignment();
+        assignment.setPatrol(patrol);
+        assignment.setOfficer(officer);
+        assignment.setAssignedBy(sho);
+        assignment.setStatus(AssignmentStatus.PENDING);
+        assignment.setAssignedAt(LocalDateTime.now());
 
         return assignmentRepository.save(assignment);
     }

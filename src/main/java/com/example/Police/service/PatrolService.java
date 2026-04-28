@@ -23,15 +23,14 @@ public class PatrolService {
         User sho = userRepository.findByEmail(shoEmail)
                 .orElseThrow(() -> new RuntimeException("SHO not found"));
 
-        Patrol patrol = Patrol.builder()
-                .title(request.getTitle())
-                .area(request.getArea())
-                .startTime(request.getStartTime())
-                .endTime(request.getEndTime())
-                .notes(request.getNotes())
-                .status(PatrolStatus.PLANNED)
-                .createdBy(sho)
-                .build();
+        Patrol patrol = new Patrol();
+        patrol.setTitle(request.getTitle());
+        patrol.setArea(request.getArea());
+        patrol.setStartTime(request.getStartTime());
+        patrol.setEndTime(request.getEndTime());
+        patrol.setNotes(request.getNotes());
+        patrol.setStatus(PatrolStatus.PLANNED);
+        patrol.setCreatedBy(sho);
 
         return patrolRepository.save(patrol);
     }

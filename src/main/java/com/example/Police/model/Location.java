@@ -8,10 +8,7 @@ import com.example.Police.common.AuditEntity;
 
 @Entity
 @Table(name = "police_locations")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Location extends AuditEntity {
 
     @Id
@@ -39,4 +36,24 @@ public class Location extends AuditEntity {
     protected void onLocationCreate() {
         this.timestamp = LocalDateTime.now();
     }
+
+    public Location() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public User getOfficer() { return officer; }
+    public void setOfficer(User officer) { this.officer = officer; }
+
+    public Patrol getPatrol() { return patrol; }
+    public void setPatrol(Patrol patrol) { this.patrol = patrol; }
+
+    public Double getLatitude() { return latitude; }
+    public void setLatitude(Double latitude) { this.latitude = latitude; }
+
+    public Double getLongitude() { return longitude; }
+    public void setLongitude(Double longitude) { this.longitude = longitude; }
+
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
 }

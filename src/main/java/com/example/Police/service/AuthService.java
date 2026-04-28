@@ -39,25 +39,24 @@ public class AuthService {
             throw new RuntimeException("Badge number already in use: " + request.getBadgeNumber());
         }
 
-        User user = User.builder()
-                .name(request.getName())
-                .email(request.getEmail())
-                .password(encoder.encode(request.getPassword()))
-                .badgeNumber(request.getBadgeNumber())
-                .role(request.getRole())
-                .status(Status.ACTIVE)
-                .build();
+        User user = new User();
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(encoder.encode(request.getPassword()));
+        user.setBadgeNumber(request.getBadgeNumber());
+        user.setRole(request.getRole());
+        user.setStatus(Status.ACTIVE);
 
         User savedUser = userRepository.save(user);
 
-        return RegisterResponse.builder()
-                .id(savedUser.getId())
-                .name(savedUser.getName())
-                .email(savedUser.getEmail())
-                .badgeNumber(savedUser.getBadgeNumber())
-                .role(savedUser.getRole())
-                .message("Police account created successfully.")
-                .build();
+        RegisterResponse response = new RegisterResponse();
+        response.setId(savedUser.getId());
+        response.setName(savedUser.getName());
+        response.setEmail(savedUser.getEmail());
+        response.setBadgeNumber(savedUser.getBadgeNumber());
+        response.setRole(savedUser.getRole());
+        response.setMessage("Police account created successfully.");
+        return response;
     }
 
     public LoginResponse login(LoginRequest request) {

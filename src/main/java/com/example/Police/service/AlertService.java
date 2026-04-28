@@ -30,13 +30,12 @@ public class AlertService {
         User officer = userRepository.findByEmail(officerEmail)
                 .orElseThrow(() -> new RuntimeException("Officer not found"));
 
-        Alert alert = Alert.builder()
-                .patrol(patrol)
-                .officer(officer)
-                .type(request.getType())
-                .message(request.getMessage())
-                .status(AlertStatus.OPEN)
-                .build();
+        Alert alert = new Alert();
+        alert.setPatrol(patrol);
+        alert.setOfficer(officer);
+        alert.setType(request.getType());
+        alert.setMessage(request.getMessage());
+        alert.setStatus(AlertStatus.OPEN);
 
         return alertRepository.save(alert);
     }

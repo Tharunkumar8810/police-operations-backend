@@ -8,11 +8,7 @@ import com.example.Police.common.AuditEntity;
 
 @Entity
 @Table(name = "police_assignments")
-@Data
-@EqualsAndHashCode(callSuper = true)
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Assignment extends AuditEntity {
 
     @Id
@@ -52,4 +48,33 @@ public class Assignment extends AuditEntity {
         this.assignedAt = LocalDateTime.now();
         this.status = AssignmentStatus.PENDING;
     }
+
+    public Assignment() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Patrol getPatrol() { return patrol; }
+    public void setPatrol(Patrol patrol) { this.patrol = patrol; }
+
+    public User getOfficer() { return officer; }
+    public void setOfficer(User officer) { this.officer = officer; }
+
+    public AssignmentStatus getStatus() { return status; }
+    public void setStatus(AssignmentStatus status) { this.status = status; }
+
+    public LocalDateTime getAssignedAt() { return assignedAt; }
+    public void setAssignedAt(LocalDateTime assignedAt) { this.assignedAt = assignedAt; }
+
+    public LocalDateTime getAcknowledgedAt() { return acknowledgedAt; }
+    public void setAcknowledgedAt(LocalDateTime acknowledgedAt) { this.acknowledgedAt = acknowledgedAt; }
+
+    public LocalDateTime getCompletedAt() { return completedAt; }
+    public void setCompletedAt(LocalDateTime completedAt) { this.completedAt = completedAt; }
+
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+
+    public User getAssignedBy() { return assignedBy; }
+    public void setAssignedBy(User assignedBy) { this.assignedBy = assignedBy; }
 }

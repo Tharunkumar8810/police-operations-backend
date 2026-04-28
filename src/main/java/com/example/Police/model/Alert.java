@@ -8,10 +8,7 @@ import com.example.Police.common.AuditEntity;
 
 @Entity
 @Table(name = "police_alerts")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Alert extends AuditEntity {
 
     @Id
@@ -48,4 +45,30 @@ public class Alert extends AuditEntity {
     protected void onAlertCreate() {
         this.status = AlertStatus.OPEN;
     }
+
+    public Alert() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Patrol getPatrol() { return patrol; }
+    public void setPatrol(Patrol patrol) { this.patrol = patrol; }
+
+    public User getOfficer() { return officer; }
+    public void setOfficer(User officer) { this.officer = officer; }
+
+    public AlertType getType() { return type; }
+    public void setType(AlertType type) { this.type = type; }
+
+    public String getMessage() { return message; }
+    public void setMessage(String message) { this.message = message; }
+
+    public AlertStatus getStatus() { return status; }
+    public void setStatus(AlertStatus status) { this.status = status; }
+
+    public LocalDateTime getResolvedAt() { return resolvedAt; }
+    public void setResolvedAt(LocalDateTime resolvedAt) { this.resolvedAt = resolvedAt; }
+
+    public User getResolvedBy() { return resolvedBy; }
+    public void setResolvedBy(User resolvedBy) { this.resolvedBy = resolvedBy; }
 }

@@ -34,13 +34,12 @@ public class LocationService {
         Patrol patrol = patrolRepository.findById(request.getPatrolId())
                 .orElseThrow(() -> new RuntimeException("Patrol not found with id: " + request.getPatrolId()));
 
-        Location location = Location.builder()
-                .officer(officer)
-                .patrol(patrol)
-                .latitude(request.getLatitude())
-                .longitude(request.getLongitude())
-                .timestamp(LocalDateTime.now())
-                .build();
+        Location location = new Location();
+        location.setOfficer(officer);
+        location.setPatrol(patrol);
+        location.setLatitude(request.getLatitude());
+        location.setLongitude(request.getLongitude());
+        location.setTimestamp(LocalDateTime.now());
 
         Location saved = locationRepository.save(location);
 

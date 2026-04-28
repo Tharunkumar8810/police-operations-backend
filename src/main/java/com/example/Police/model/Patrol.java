@@ -10,10 +10,7 @@ import com.example.Police.common.AuditEntity;
 
 @Entity
 @Table(name = "police_patrols")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Patrol extends AuditEntity {
 
     @Id
@@ -54,4 +51,36 @@ public class Patrol extends AuditEntity {
     protected void onPatrolCreate() {
         this.status = PatrolStatus.PLANNED;
     }
+
+    public Patrol() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getArea() { return area; }
+    public void setArea(String area) { this.area = area; }
+
+    public LocalDateTime getStartTime() { return startTime; }
+    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
+
+    public LocalDateTime getEndTime() { return endTime; }
+    public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
+
+    public PatrolStatus getStatus() { return status; }
+    public void setStatus(PatrolStatus status) { this.status = status; }
+
+    public User getCreatedBy() { return createdBy; }
+    public void setCreatedBy(User createdBy) { this.createdBy = createdBy; }
+
+    public List<Assignment> getAssignments() { return assignments; }
+    public void setAssignments(List<Assignment> assignments) { this.assignments = assignments; }
+
+    public String getNotes() { return notes; }
+    public void setNotes(String notes) { this.notes = notes; }
+
+    public LocalDateTime getClosedAt() { return closedAt; }
+    public void setClosedAt(LocalDateTime closedAt) { this.closedAt = closedAt; }
 }
