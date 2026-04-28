@@ -7,7 +7,10 @@
     {
       "name": "1. Create Patrol (SHO)",
       "request": {
-        "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_SHO_TOKEN_HERE>", "type": "string"}]},
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{sho_token}}", "type": "string"}]
+        },
         "method": "POST",
         "header": [{"key": "Content-Type", "value": "application/json"}],
         "body": {
@@ -20,7 +23,10 @@
     {
       "name": "2. Assign Officer (SHO)",
       "request": {
-        "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_SHO_TOKEN_HERE>", "type": "string"}]},
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{sho_token}}", "type": "string"}]
+        },
         "method": "POST",
         "header": [{"key": "Content-Type", "value": "application/json"}],
         "body": {
@@ -33,7 +39,10 @@
     {
       "name": "3. Acknowledge Assignment (Officer)",
       "request": {
-        "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_OFFICER_TOKEN_HERE>", "type": "string"}]},
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{officer_token}}", "type": "string"}]
+        },
         "method": "PATCH",
         "header": [],
         "url": "https://police-operations-backend.onrender.com/api/assignments/1/acknowledge"
@@ -42,7 +51,10 @@
     {
       "name": "4. Update Location (Officer)",
       "request": {
-        "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_OFFICER_TOKEN_HERE>", "type": "string"}]},
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{officer_token}}", "type": "string"}]
+        },
         "method": "POST",
         "header": [{"key": "Content-Type", "value": "application/json"}],
         "body": {
@@ -55,7 +67,10 @@
     {
       "name": "5. Raise SOS Alert (Officer)",
       "request": {
-        "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_OFFICER_TOKEN_HERE>", "type": "string"}]},
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{officer_token}}", "type": "string"}]
+        },
         "method": "POST",
         "header": [{"key": "Content-Type", "value": "application/json"}],
         "body": {
@@ -68,7 +83,10 @@
     {
       "name": "6. Resolve Alert (SHO/Supervisor)",
       "request": {
-        "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_SHO_OR_SUPERVISOR_TOKEN_HERE>", "type": "string"}]},
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{sho_token}}", "type": "string"}]
+        },
         "method": "PATCH",
         "header": [],
         "url": "https://police-operations-backend.onrender.com/api/alerts/1/resolve"
@@ -77,11 +95,31 @@
     {
       "name": "7. Complete Assignment (Officer)",
       "request": {
-        "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_OFFICER_TOKEN_HERE>", "type": "string"}]},
+        "auth": {
+          "type": "bearer",
+          "bearer": [{"key": "token", "value": "{{officer_token}}", "type": "string"}]
+        },
         "method": "PATCH",
         "header": [],
         "url": "https://police-operations-backend.onrender.com/api/assignments/1/complete?remarks=Incident resolved safely, returning to station."
       }
+    }
+  ],
+  "variable": [
+    {
+      "key": "sho_token",
+      "value": "paste_sho_token_here",
+      "type": "string"
+    },
+    {
+      "key": "officer_token",
+      "value": "paste_officer_token_here",
+      "type": "string"
+    },
+    {
+      "key": "supervisor_token",
+      "value": "paste_supervisor_token_here",
+      "type": "string"
     }
   ]
 }
