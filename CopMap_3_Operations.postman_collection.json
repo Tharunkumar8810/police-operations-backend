@@ -14,7 +14,7 @@
           "mode": "raw",
           "raw": "{\n  \"title\": \"Night Shift City Center\",\n  \"area\": \"Downtown Sector 4\",\n  \"startTime\": \"2026-04-28T22:00:00\",\n  \"endTime\": \"2026-04-29T06:00:00\",\n  \"notes\": \"High priority patrol due to recent incidents.\"\n}"
         },
-        "url": {"raw": "https://police-operations-backend.onrender.com/api/patrols", "host": ["https://police-operations-backend.onrender.com"]}
+        "url": "https://police-operations-backend.onrender.com/api/patrols"
       }
     },
     {
@@ -27,7 +27,7 @@
           "mode": "raw",
           "raw": "{\n  \"patrolId\": 1,\n  \"officerEmail\": \"officer@police.com\"\n}"
         },
-        "url": {"raw": "https://police-operations-backend.onrender.com/api/assignments", "host": ["https://police-operations-backend.onrender.com"]}
+        "url": "https://police-operations-backend.onrender.com/api/assignments"
       }
     },
     {
@@ -36,7 +36,7 @@
         "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_OFFICER_TOKEN_HERE>", "type": "string"}]},
         "method": "PATCH",
         "header": [],
-        "url": {"raw": "https://police-operations-backend.onrender.com/api/assignments/1/acknowledge", "host": ["https://police-operations-backend.onrender.com"]}
+        "url": "https://police-operations-backend.onrender.com/api/assignments/1/acknowledge"
       }
     },
     {
@@ -49,7 +49,7 @@
           "mode": "raw",
           "raw": "{\n  \"patrolId\": 1,\n  \"latitude\": 40.7128,\n  \"longitude\": -74.0060\n}"
         },
-        "url": {"raw": "https://police-operations-backend.onrender.com/api/location/update", "host": ["https://police-operations-backend.onrender.com"]}
+        "url": "https://police-operations-backend.onrender.com/api/location/update"
       }
     },
     {
@@ -62,7 +62,7 @@
           "mode": "raw",
           "raw": "{\n  \"patrolId\": 1,\n  \"type\": \"SOS\",\n  \"message\": \"Encountered suspicious activity at Main Street alleyway, requesting backup.\"\n}"
         },
-        "url": {"raw": "https://police-operations-backend.onrender.com/api/alerts", "host": ["https://police-operations-backend.onrender.com"]}
+        "url": "https://police-operations-backend.onrender.com/api/alerts"
       }
     },
     {
@@ -71,7 +71,7 @@
         "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_SHO_OR_SUPERVISOR_TOKEN_HERE>", "type": "string"}]},
         "method": "PATCH",
         "header": [],
-        "url": {"raw": "https://police-operations-backend.onrender.com/api/alerts/1/resolve", "host": ["https://police-operations-backend.onrender.com"]}
+        "url": "https://police-operations-backend.onrender.com/api/alerts/1/resolve"
       }
     },
     {
@@ -80,10 +80,7 @@
         "auth": {"type": "bearer", "bearer": [{"key": "token", "value": "<PASTE_OFFICER_TOKEN_HERE>", "type": "string"}]},
         "method": "PATCH",
         "header": [],
-        "url": {
-          "raw": "https://police-operations-backend.onrender.com/api/assignments/1/complete?remarks=Incident resolved safely, returning to station.",
-          "host": ["https://police-operations-backend.onrender.com"]
-        }
+        "url": "https://police-operations-backend.onrender.com/api/assignments/1/complete?remarks=Incident resolved safely, returning to station."
       }
     }
   ]
